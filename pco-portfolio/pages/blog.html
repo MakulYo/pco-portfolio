@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Profile — Portfolio</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <header>
+    <nav aria-label="Primary">
+      <a href="../index.html">Home</a>
+      <a href="profile.html">Profile</a>
+      <a href="blog.html" aria-current="page">Blog</a>
+      <a href="faq.html">FAQ</a>
+      <a href="dashboard.html">Dashboard</a>
+    </nav>
+  </header>
+  <main>
+    <h1>Blog</h1>
+    <p>About myself</p>
+  </main>
+  <footer>
+    <small>© <span id="year"></span> Mikołaj Makulski</small>
+  </footer>
+  <script>
+    const y=document.getElementById('year'); if(y) y.textContent=new Date().getFullYear();
+  </script>
+</body>
+</html>
