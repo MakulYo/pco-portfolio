@@ -1,30 +1,70 @@
 <!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Profile — Portfolio</title>
-  <link rel="stylesheet" href="../style.css">
-</head>
-<body>
-  <header>
-    <nav aria-label="Primary">
-      <a href="../index.html">Home</a>
-      <a href="profile.html">Profile</a>
-      <a href="blog.html" aria-current="page">Blog</a>
-      <a href="faq.html">FAQ</a>
-      <a href="dashboard.html">Dashboard</a>
-    </nav>
-  </header>
-  <main>
-    <h1>Blog</h1>
-    <p>About myself</p>
-  </main>
-  <footer>
-    <small>© <span id="year"></span> Mikołaj Makulski</small>
-  </footer>
-  <script>
-    const y=document.getElementById('year'); if(y) y.textContent=new Date().getFullYear();
-  </script>
-</body>
-</html>
+  <html lang="en">
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>Profile — Portfolio</title>
+      <link rel="stylesheet" href="../style.css">
+    </head>
+    <body>
+      <header>
+        <nav aria-label="Primary">
+          <a href="../index.html">Home</a>
+          <a href="profile.html">Profile</a>
+          <a href="blog.html" aria-current="page">Blog</a>
+          <a href="faq.html">FAQ</a>
+          <a href="dashboard.html">Dashboard</a>
+        </nav>
+      </header>
+      <main id="main" tabindex="-1">
+        <h1>Blog</h1>
+
+        <article>
+          <h2><a href="../posts/study-choice.html">Study choice</a></h2>
+          <p>
+            How I explored my options, why I chose HBO-ICT, and what convinced me this
+            was the right study. <a href="../posts/study-choice.html">Read more →</a>
+          </p>
+        </article>
+
+        <article>
+          <h2><a href="../posts/swot.html">Personal SWOT</a></h2>
+          <p>
+            My strengths, weaknesses, opportunities, and threats — and what they mean
+            for my study journey. <a href="../posts/swot.html">Read more →</a>
+          </p>
+        </article>
+
+        <article>
+          <h2><a href="../posts/programming-experience.html">Programming experience</a></h2>
+          <p>
+            From being a game tester to exploring code after 10 years away from school
+            — my journey so far. <a href="../posts/programming-experience.html">Read more →</a>
+          </p>
+        </article>
+
+        <article>
+          <h2><a href="../posts/first-feedback.html">First feedback</a></h2>
+          <p>
+            What feedback I received in my first weeks, and how I plan to use it to
+            improve. <a href="../posts/first-feedback.html">Read more →</a>
+          </p>
+        </article>
+
+        <article>
+          <h2><a href="../posts/ict-field.html">ICT field</a></h2>
+          <p>
+            Three ICT companies that inspire me, what they do, and why I could see
+            myself there in the future. <a href="../posts/ict-field.html">Read more →</a>
+          </p>
+        </article>
+      </main>
+
+      <footer>
+        <small>© <span id="year"></span> Mikołaj Makulski</small>
+      </footer>
+      <script>
+        const y=document.getElementById('year'); if(y) y.textContent=new Date().getFullYear();
+      </script>
+    </body>
+  </html>
