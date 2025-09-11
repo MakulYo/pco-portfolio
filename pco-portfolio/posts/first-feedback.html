@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Study choice — Mikołaj Makulski</title>
-  <meta name="description" content="Blank">
+  <title>First feedback — Mikołaj Makulski</title>
+  <meta name="description" content="Early feedback on my website and study approach, plus the improvements I made.">
   <link rel="stylesheet" href="../style.css">
 </head>
 <body>
@@ -12,41 +12,45 @@
     <nav aria-label="Primary">
       <a href="../index.html">Home</a>
       <a href="../pages/profile.html">Profile</a>
-      <a href="../pages/blog.html">Blog</a>
+      <a href="../pages/blog.html" aria-current="page">Blog</a>
       <a href="../pages/faq.html">FAQ</a>
       <a href="../pages/dashboard.html">Dashboard</a>
+
+      <div class="nav-links" style="margin-left:auto; position:relative;">
+        <button id="linksBtn" class="nav-btn" aria-haspopup="true" aria-expanded="false" aria-controls="linksPanel">
+          Useful links ▾
+        </button>
+        <div id="linksPanel" class="links-panel" hidden>
+          <ul>
+            <li><a href="https://hz.nl" target="_blank" rel="noopener">HZ website</a></li>
+            <li><a href="https://learn.hz.nl/" target="_blank" rel="noopener">HZ Learn</a></li>
+            <li><a href="https://apps.hz.nl/studyprogress" target="_blank" rel="noopener">MyHZ progress</a></li>
+            <li><a href="https://github.com/HZ-HBO-ICT" target="_blank" rel="noopener">HZ GitHub org</a></li>
+            <li><a href="https://hz.nl/en/about-hz/regulations" target="_blank" rel="noopener">CER / IR</a></li>
+          </ul>
+        </div>
+      </div>
     </nav>
   </header>
 
-  <div class="layout">
-    <aside class="aside">
-      <h2>Useful links</h2>
-      <ul>
-       <li><a href="https://hz.nl" target="_blank" rel="noopener">HZ website</a></li>
-        <li><a href="https://learn.hz.nl/" target="_blank" rel="noopener">HZ learn</a></li>
-        <li><a href="https://github.com/HZ-HBO-ICT" target="_blank" rel="noopener">HZ GitHub</a></li>
-      </ul>
-    </aside>
-  </div>
-    <main id="main" tabindex="-1">
-      <article class="post">
-  <header class="post-header">
-    <h1 class="post-title">First feedback</h1>
-    <div class="post-meta">Posted by Mikołaj • 2025-09-11</div>
-  </header>
+  <main id="main">
+    <article class="post">
+      <header class="post-header">
+        <h1 class="post-title">First feedback</h1>
+        <div class="post-meta">Posted by Mikołaj • 2025-09-11</div>
+      </header>
+      <div class="post-content">
+        <p>Early feedback focused on structure and clarity: make the navigation consistent, add alt text, and keep the layout responsive. I also learned how one missing character can break a page (a meta tag that swallowed my CSS link).</p>
+        <p>I fixed those by standardising the header, adding a skip link, and using a three-stage layout for the aside (stacked on mobile, sticky on tablet, fixed on desktop). I also added clear titles and descriptions per page.</p>
+        <p>Next steps: keep content short and specific, and improve the dashboard table with EC values and a clear NBSA marker.</p>
+        <div class="post-divider"></div>
+      </div>
+    </article>
+  </main>
 
-  <div class="post-content">
-    <p>Early feedback focused on structure and clarity: make the navigation consistent, add alt text, and keep the layout responsive. I also learned how one missing character can break a page (a meta tag that swallowed my CSS link).</p>
-    <p>I fixed those by standardising the header, adding a skip link, and using a three-stage layout for the aside (stacked on mobile, sticky on tablet, fixed on desktop). I also added clear titles and descriptions per page.</p>
-    <p>Next steps: keep content short and specific, and improve the dashboard table with EC values and a clear NBSA marker.</p><div class="post-divider"></div>
-  </div>
-</article>
-    </main>
   <footer>
-        <small>© <span id="year"></span> Mikołaj Makulski</small>
-      </footer>
-      <script>
-        const y=document.getElementById('year'); if(y) y.textContent=new Date().getFullYear();
-      </script>
+    <small>© <span id="year"></span> Mikołaj Makulski</small>
+  </footer>
+  <script src="../main.js"></script>
 </body>
 </html>

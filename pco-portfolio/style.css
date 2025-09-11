@@ -68,71 +68,7 @@ nav a{
 nav a:hover, nav a[aria-current="page"]{
   background:var(--surface); box-shadow:var(--shadow)
 }
-
-/* ==========================================================================
-   3) PAGE LAYOUT (MOBILE → TABLET → DESKTOP)
-   ========================================================================== */
-:root{
-  --gutter:16px;
-  --gap:24px;
-  --aside-w:220px;      /* sidebar width on desktop */
-  --header-h:64px;      /* your header height */
-}
-
-/* Mobile: stacked, no fixed/sticky */
-.layout{
-  max-width: 900px;
-  margin: 0 auto;
-  padding: var(--page-top) var(--gutter) 1rem;
-}
-.aside{
-  position: static;
-  width: auto;
-  margin: 0 0 var(--gap);
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 12px 14px;
-  box-shadow: var(--shadow);
-}
-.aside h2{ margin: 0 0 .5rem }
-
-/* Tablet: two columns, aside sticky (no overlap) */
-@media (min-width: 900px){
-  .layout{
-    display: grid;
-    grid-template-columns: 1fr 260px;  /* content | aside */
-    gap: var(--gap);
-    align-items: start;
-    padding: var(--page-top) var(--gutter) 1rem;
-  }
-  .layout > main{ grid-column: 1; }
-  .layout > .aside{ grid-column: 2; }
-  .aside{
-    position: sticky;
-    top: calc(var(--header-h) + 12px); /* clears the sticky header */
-    width: auto;                       /* uses the grid column width */
-  }
-}
-
-/* Desktop: aside fixed on the far right, reserve space so main never overlaps */
-@media (min-width: 1200px){
-  .layout{
-    display: block; /* back to block; we’ll reserve space manually */
-    margin-right: calc(var(--aside-w) + var(--gap) + var(--gutter));
-    padding: var(--page-top) var(--gutter) 1rem;
-  }
-  .aside{
-    position: fixed;
-    top: calc(var(--header-h) + 12px);
-    right: var(--gutter);
-    width: var(--aside-w);
-  }
-}
-
-/* keep hero top padding coordinated with layout */
-.hero{ padding: 0 16px 56px; }
-
+main{ padding:1.25rem; max-width:900px; margin-inline:auto; }
 
 /* ==========================================================================
    4) HOME HERO
