@@ -277,3 +277,31 @@ details > div { margin-top: .5rem; color: var(--muted); }
 .status--failed { color:#fda4af; }
 .status--pending { color: var(--muted); }
 .group { background: color-mix(in hsl, var(--surface) 85%, transparent) }
+
+
+/* NAV DROPDOWN: Useful links */
+.nav-btn{
+  background: transparent; border: 1px solid var(--border);
+  color: var(--text); padding: .4rem .7rem; border-radius: 999px;
+}
+.nav-btn:hover{ background: var(--surface); }
+
+.links-panel{
+  position: absolute; right: 0; top: calc(100% + 8px);
+  width: 260px; padding: 12px;
+  background: var(--surface);
+  border: 1px solid var(--border); border-radius: 12px;
+  box-shadow: var(--shadow);
+  animation: panelIn .12s ease-out;
+}
+.links-panel ul{ list-style:none; margin:0; padding:0; display:grid; gap:.4rem; }
+.links-panel a{ text-decoration:none; color: var(--accent); }
+.links-panel a:hover{ color: var(--accent-strong); }
+
+@keyframes panelIn{ from{ opacity:0; transform: translateY(-6px); }
+                    to{   opacity:1; transform: translateY(0); } }
+
+/* small screens: make it wider */
+@media (max-width:700px){
+  .links-panel{ width: min(92vw, 320px); right: 8px; }
+}

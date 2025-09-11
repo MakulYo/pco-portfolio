@@ -15,6 +15,25 @@
                     <a href="pages/blog.html">Blog</a>
                     <a href="pages/faq.html">FAQ</a>
                     <a href="pages/dashboard.html">Dashboard</a>
+                    <div class="nav-links" style="margin-left:auto; position:relative;">
+  <button id="linksBtn"
+          class="nav-btn"
+          aria-haspopup="true"
+          aria-expanded="false"
+          aria-controls="linksPanel">
+    Useful links ▾
+  </button>
+
+  <div id="linksPanel" class="links-panel" hidden>
+    <ul>
+      <li><a href="https://hz.nl" target="_blank" rel="noopener">HZ website</a></li>
+      <li><a href="https://learn.hz.nl/" target="_blank" rel="noopener">HZ Learn</a></li>
+      <li><a href="https://apps.hz.nl/studyprogress" target="_blank" rel="noopener">MyHZ progress</a></li>
+      <li><a href="https://github.com/HZ-HBO-ICT" target="_blank" rel="noopener">HZ GitHub org</a></li>
+      <li><a href="https://hz.nl/en/about-hz/regulations" target="_blank" rel="noopener">CER / IR</a></li>
+    </ul>
+  </div>
+</div>
                 </nav>
             </header>
             <div class="layout">
@@ -78,6 +97,28 @@
             <footer>
                 <small>© <span id="year"></span> Mikołaj Makulski</small>
             </footer>
+            <script>
+(() => {
+  const btn = document.getElementById('linksBtn');
+  const panel = document.getElementById('linksPanel');
+  function closePanel(){
+    panel.hidden = true;
+    btn.setAttribute('aria-expanded','false');
+  }
+  btn.addEventListener('click', (e) => {
+    const open = panel.hidden;
+    panel.hidden = !open;
+    btn.setAttribute('aria-expanded', String(open));
+    if (open) panel.querySelector('a')?.focus();
+  });
+  // click outside closes
+  document.addEventListener('click', (e) => {
+    if (!panel.hidden && !panel.contains(e.target) && e.target !== btn) closePanel();
+  });
+  // Esc closes
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closePanel(); });
+})();
+</script>
             <script> 
                 const y=document.getElementById('year'); if (y) y.textContent=new Date().getFullYear();
             </script>
