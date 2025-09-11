@@ -248,3 +248,32 @@ details[open] .summary-caret { transform: rotate(90deg); }
 details > div { margin-top: .5rem; color: var(--muted); }
 .details-steps { margin: .25rem 0 0 1rem; }
 .details-steps li { margin: .25rem 0; }
+.faq.hero{ padding-bottom:16px; }
+.faq h1{ margin-bottom:.75rem; }
+.faq details:first-of-type{ margin-top:0; }
+
+/* ==========================================================================
+   10) DASHBOARD
+   ========================================================================== */
+.dashboard { max-width: 1000px; margin: 0 auto; }
+.kpis { display: grid; grid-template-columns: 1fr; gap: 12px; margin: .5rem 0 1rem; }
+.progress {
+  position: relative; height: 14px; border:1px solid var(--border);
+  border-radius: 999px; background:#0b0f1c; overflow: hidden;
+}
+.progress .bar { height:100%; background: var(--accent); width:0% }
+.progress .nbsa {
+  position:absolute; top:-4px; bottom:-4px;
+  width:2px; background:#ffb86c; left: 75%; /* 45/60 = 75% */
+  opacity:.9;
+}
+.kpis small { color: var(--muted); }
+
+.table { width:100%; border-collapse: collapse; margin-top: .5rem; }
+.table th, .table td { border:1px solid var(--border); padding:.5rem .6rem; vertical-align: top; }
+.table thead th { background: var(--surface); text-align:left; }
+.status { font-weight:600; }
+.status--passed { color:#86efac; }
+.status--failed { color:#fda4af; }
+.status--pending { color: var(--muted); }
+.group { background: color-mix(in hsl, var(--surface) 85%, transparent) }

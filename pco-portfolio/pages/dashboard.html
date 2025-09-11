@@ -27,17 +27,117 @@
         </ul>
     </aside>
     </div>
-  <main>
-    <section class="hero">
+  <main id="main">
+  <section class="hero">
     <h1>Dashboard</h1>
-    <p>Navigation center</p>
-    </section>
-  </main>
+    <p class="muted">Overview of first-year tests and earned EC. Update the <em>Status</em> column and the progress will recalc automatically.</p>
+  </section>
+  <section class="dashboard">
+    <div class="kpis">
+      <div>
+        <div class="progress" aria-label="EC progress (NBSA at 45 EC)">
+          <div class="bar" id="ecBar" style="width:0%"></div>
+          <span class="nbsa" title="NBSA 45 EC"></span>
+        </div>
+        <small><span id="ecEarned">0</span>/60 EC • NBSA at 45 EC</small>
+      </div>
+    </div>
+    <table class="table" id="ecTable">
+      <thead>
+        <tr>
+          <th style="width:70px">Quartile</th>
+          <th style="width:160px">Course</th>
+          <th>Exam / Component</th>
+          <th style="width:70px">EC</th>
+          <th style="width:120px">Status</th>
+        </tr>
+      </thead>
+      <!-- Semester 1 (≈ Q1–Q2) -->
+<tr class="group"><td colspan="5"><strong>Semester 1</strong></td></tr>
+<tr data-ec="2.5">
+  <td>S1</td><td>PCO</td><td>Program & Career Orientation (portfolio + presentation)</td><td>2.5</td>
+  <td class="status status--pending">Not yet</td>
+</tr>
+<tr data-ec="5">
+  <td>S1</td><td>CSB</td><td>Computer Science Basics — written test</td><td>5</td>
+  <td class="status status--pending">Not yet</td>
+</tr>
+<tr data-ec="5">
+  <td>S1</td><td>PRB</td><td>Programming Basics — case study exam</td><td>5</td>
+  <td class="status status--pending">Not yet</td>
+</tr>
+<tr data-ec="10">
+  <td>S1→S2</td><td>OOP</td><td>Object-Oriented Programming (group presentation + written test)</td><td>10</td>
+  <td class="status status--pending">Not yet</td>
+</tr>
+
+<!-- Semester 2 (≈ Q3–Q4) -->
+<tr class="group"><td colspan="5"><strong>Semester 2</strong></td></tr>
+<tr data-ec="10">
+  <td>S2</td><td>FWP1</td><td>Framework Project 1 (exam + presentation + portfolio)</td><td>10</td>
+  <td class="status status--pending">Not yet</td>
+</tr>
+<tr data-ec="10">
+  <td>S2</td><td>FWP2</td><td>Framework Project 2 (group delivery + individual assessment + IT-Dev portfolio)</td><td>10</td>
+  <td class="status status--pending">Not yet</td>
+</tr>
+<tr data-ec="2.5">
+  <td>S2</td><td>BUB</td><td>Business Understanding Basics — video assignment</td><td>2.5</td>
+  <td class="status status--pending">Not yet</td>
+</tr>
+<tr data-ec="12.5">
+  <td>S1→S2</td><td>PPD/E</td><td>Personal Professional Development — exploration (criterion interview)</td><td>12.5</td>
+  <td class="status status--pending">Not yet</td>
+</tr>
+
+<!-- IT Personality selections (pick ~2 to reach 60 EC) -->
+<tr class="group"><td colspan="5"><strong>IT Personality (choose)</strong></td></tr>
+<tr data-ec="1.25">
+  <td>S1/S2</td><td>ITP</td><td>Projectweek / International week / ITP 1-4 — portfolio</td><td>1.25</td>
+  <td class="status status--pending">Not yet</td>
+</tr>
+<tr data-ec="1.25">
+  <td>S1/S2</td><td>ITP</td><td>Projectweek / International week / ITP 1-4 — portfolio</td><td>1.25</td>
+  <td class="status status--pending">Not yet</td>
+</tr>
+
+    </table>
+
+   
+  </section>
+</main>
+
   <footer>
     <small>© <span id="year"></span> Mikołaj Makulski</small>
   </footer>
   <script>
     const y=document.getElementById('year'); if(y) y.textContent=new Date().getFullYear();
   </script>
+  <script>
+(function(){
+  const totalEC = 60;               // first-year total
+  const rows = document.querySelectorAll('#ecTable tbody tr[data-ec]');
+  function recalc(){
+    let earned = 0;
+    rows.forEach(tr=>{
+      const ec = Number(tr.dataset.ec||0);
+      const status = (tr.querySelector('.status')?.textContent||'').toLowerCase().trim();
+      if(status.startsWith('passed')) earned += ec;
+      // colorize status
+      tr.querySelector('.status')?.classList.toggle('status--passed', status.startsWith('passed'));
+      tr.querySelector('.status')?.classList.toggle('status--failed', status.startsWith('failed'));
+      tr.querySelector('.status')?.classList.toggle('status--pending', status.startsWith('not'));
+    });
+    const pct = Math.min(100, (earned/totalEC)*100);
+    document.getElementById('ecBar').style.width = pct + '%';
+    document.getElementById('ecEarned').textContent = earned;
+  }
+  // run once and whenever you click to edit content (simple demo)
+  recalc();
+  document.getElementById('ecTable').addEventListener('input', recalc);
+  document.getElementById('ecTable').addEventListener('keyup', recalc);
+})();
+</script>
+
 </body>
 </html>
