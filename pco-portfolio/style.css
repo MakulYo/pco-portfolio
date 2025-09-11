@@ -21,6 +21,7 @@
 *{box-sizing:border-box}
 html,body{height:100%}
 body{
+  font-size:16px
   margin:0;
   font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
   line-height:1.6;
@@ -35,8 +36,8 @@ body::before{
     radial-gradient(900px 500px at -10% 20%, rgba(127,200,255,.06), transparent 60%);
   background-repeat:no-repeat,no-repeat;
 }
-h1,h2,h3{line-height:1.25; margin:0 0 .5rem}
-h2{margin-top:1.5rem}
+h1,h2,h3{line-height:1.25; margin:0 0 .5rem; font-size:clamp(1.8rem,3.5vw,2.4rem)}
+h2{margin-top:1.5rem; font-size:1.25rem}
 p{margin:0 0 1rem}
 a:link, a:visited {
   color: var(--accent);            /* same color for normal + visited */
@@ -193,3 +194,32 @@ ul li::marker{color:var(--accent)}
   .cta{flex-wrap:wrap}
   .hero-media{grid-template-columns:1fr}
 }
+
+/* ==========================================================================
+   8) ARTICLE / POSTS
+   ========================================================================== */
+.post{ max-width: 760px; margin: 0 auto; }
+.post-header{ margin: 0 0 1rem; }
+.post-title{ font-size: clamp(1.6rem, 3vw, 2.1rem); margin: 0 0 .25rem; }
+.post-meta{ color: var(--muted); font-size: .95rem; }
+
+.post-content p{ margin: 0 0 1rem; color: var(--text); }
+.post-content h2{ font-size: 1.25rem; margin: 1.25rem 0 .5rem; }
+.post-content ul, .post-content ol{ padding-left: 1.25rem; margin: .5rem 0 1rem; }
+.post-content li{ margin: .25rem 0; }
+.post-content a:link, .post-content a:visited{ color: var(--accent); }
+.post-content a:hover{ color: var(--accent-strong); }
+
+.post-content blockquote{
+  margin: 1rem 0; padding: .75rem 1rem;
+  border-left: 3px solid var(--accent);
+  background: color-mix(in hsl, var(--surface) 70%, transparent);
+  border-radius: 8px;
+}
+
+.post-content img, .post-content figure{
+  display: block; max-width: 100%; margin: 1rem auto; border-radius: 10px;
+  border: 1px solid var(--border); box-shadow: var(--shadow);
+}
+
+.post-divider{ height:1px; background: var(--border); margin: 1rem 0; opacity:.6; }
