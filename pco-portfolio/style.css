@@ -223,3 +223,28 @@ ul li::marker{color:var(--accent)}
 }
 
 .post-divider{ height:1px; background: var(--border); margin: 1rem 0; opacity:.6; }
+
+/* ==========================================================================
+   9) FAQ ACCORDION
+   ========================================================================== */
+.faq { max-width: 900px; margin: 0 auto; }
+details {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: .5rem .75rem;
+  margin: .75rem 0;
+  box-shadow: var(--shadow);
+}
+summary {
+  cursor: pointer;
+  list-style: none;
+  display: flex; align-items: center; gap: .5rem;
+  font-weight: 600;
+}
+summary::-webkit-details-marker { display: none; }
+.summary-caret { transition: transform .2s ease; }
+details[open] .summary-caret { transform: rotate(90deg); }
+details > div { margin-top: .5rem; color: var(--muted); }
+.details-steps { margin: .25rem 0 0 1rem; }
+.details-steps li { margin: .25rem 0; }
