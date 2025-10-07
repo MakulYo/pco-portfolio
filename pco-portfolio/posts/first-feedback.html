@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>First feedback — Mikołaj Makulski</title>
-  <meta name="description" content="Early feedback on my website and study approach, plus the improvements I made.">
+  <meta name="description" content="What I changed after feedback: nav polish, subtle visual accents, dashboard grouping, and what I chose to keep.">
   <link rel="stylesheet" href="../style.css">
 </head>
 <body>
@@ -39,10 +39,22 @@
         <h1 class="post-title">First feedback</h1>
         <div class="post-meta">Posted by Mikołaj • 2025-09-11</div>
       </header>
+
       <div class="post-content">
-        <p>Early feedback focused on structure and clarity: make the navigation consistent, add alt text, and keep the layout responsive. I also learned how one missing character can break a page (a meta tag that swallowed my CSS link).</p>
-        <p>I fixed those by standardising the header, adding a skip link, and using a three-stage layout for the aside (stacked on mobile, sticky on tablet, fixed on desktop). I also added clear titles and descriptions per page.</p>
-        <p>Next steps: keep content short and specific, and improve the dashboard table with EC values and a clear NBSA marker.</p>
+        <h2>What I improved</h2>
+        <ul>
+          <li><strong>Navigation polish:</strong> added a glassy sticky navbar with a subtle twin-side green fade and a “Useful links” pill + dropdown.</li>
+          <li><strong>Visual accents:</strong> small hover glow on links, gentle lift on cards/FAQ items, and a gradient underline on page titles to make sections easier to scan.</li>
+          <li><strong>Dashboard clarity:</strong> grouped “Quartile” cells using <code>rowspan</code> and added a hover highlight on table rows; EC progress bar updates automatically.</li>
+          <li><strong>Footer layout:</strong> footer now sticks to the bottom on short pages and sits after content on long pages.</li>
+        </ul>
+
+        <h2>What I kept (and why)</h2>
+        <ul>
+          <li><strong>Hero image sizing:</strong> kept current sizes. The hero already balances visibility and spacing without overlapping the text; it introduces the page cleanly and pushes details below the fold.</li>
+          <li><strong>Blog structure:</strong> already using proper hierarchy (<code>h1</code> page title + <code>h2</code> post titles). I slightly improved the visual styling instead of changing the semantic structure.</li>
+        </ul>
+
         <div class="post-divider"></div>
       </div>
     </article>
