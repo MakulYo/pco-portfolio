@@ -10,7 +10,6 @@
   --accent-strong:#4fb3ff;
   --border:#252a45;
   --shadow:0 10px 30px rgba(0,0,0,.35);
-
   --header-h:64px;
   --page-top:56px;
 }
@@ -48,18 +47,19 @@ a:hover,a:active{
   transition:all .2s ease;
 }
 .muted{ color:var(--muted) }
-
 main{ padding:1.25rem; max-width:900px; margin-inline:auto; flex:1 0 auto }
-
-/* Page titles – underline matches text length (h1 only) */
-h1{
-  position:relative; display:inline-block; font-weight:700;
+h1, .post-title {
+  border: 0 !important;
+  background: none !important;   
+  display: inline !important;      
+  font-weight: 700;
+  padding-bottom: 0;             
+  text-decoration-line: underline;
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 3px;
+  text-underline-offset: 6px;
 }
-h1::after{
-  content:""; position:absolute; left:0; bottom:-6px; width:100%; height:3px;
-  background:linear-gradient(90deg, var(--accent), transparent 90%);
-  border-radius:2px; opacity:.9;
-}
+.hero h1 { display: inline !important; }
 
 /* ==========================================================================
    2) HEADER & NAV
@@ -80,7 +80,6 @@ body > header::before{
   box-shadow:inset 0 1px 0 rgba(255,255,255,.06), 0 6px 24px rgba(0,0,0,.25);
 }
 body > header nav{ display:flex; gap:.6rem; padding:.75rem 1rem }
-
 nav a{
   color:var(--text);
   padding:.4rem .7rem;
@@ -90,12 +89,9 @@ nav a:hover, nav a[aria-current="page"]{
   background:var(--surface);
   box-shadow:var(--shadow);
 }
-
 .nav-links{
   margin-left:auto; position:relative; flex-shrink:0; white-space:nowrap;
 }
-
-/* Useful links pill button */
 .nav-btn{
   background:linear-gradient(145deg, var(--surface), #1a1e3a);
   border:1px solid var(--border);
@@ -116,7 +112,6 @@ nav a:hover, nav a[aria-current="page"]{
   transform:translateY(0);
   box-shadow:0 0 6px rgba(124,200,255,.25), inset 0 1px 1px rgba(255,255,255,.06), var(--shadow);
 }
-
 .links-panel{
   position:absolute; right:0; top:calc(100% + 14px); z-index:30;
   width:280px; padding:10px 10px 12px;
@@ -141,7 +136,6 @@ nav a:hover, nav a[aria-current="page"]{
 }
 .links-panel li a::after{ content:"↗"; opacity:.7; font-size:.9rem; line-height:1 }
 @keyframes panelIn{ from{opacity:0; transform:translateY(-6px)} to{opacity:1; transform:translateY(0)} }
-
 @media (max-width:700px){
   .links-panel{ width:min(92vw,320px); right:8px; top:calc(100% + 10px) }
 }
@@ -231,7 +225,6 @@ details[open] .summary-caret{ transform:rotate(90deg) }
 details > div{ margin-top:.5rem; color:var(--muted) }
 .details-steps{ margin:.25rem 0 0 1rem }
 .details-steps li{ margin:.25rem 0 }
-/* removed .faq.hero (unused combo) */
 .faq h1{ margin-bottom:.75rem }
 .faq details:first-of-type{ margin-top:0 }
 
